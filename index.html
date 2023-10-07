@@ -149,7 +149,7 @@
 
             .checkBtn {
                 display: block;
-                z-index: 2;
+                z-index: 1;
                 color: orange;
             }
 
@@ -244,7 +244,23 @@
             transition: 2s;
             box-shadow: 5px 10px 20px gray;
         }
+        @media screen and (max-width:850px){
+            
+        .booking {
+            width: 300px;
+            height: 320px;
+            margin-right: 45px;
+        }
 
+        .images {
+            width: 270px;
+            height: 250px;
+            margin-left: 45px;
+            transform: rotate3d(0deg);
+            transition: 5s;
+            box-shadow: 5px 10px 20px gray;
+        }
+        }
         #heading {
             text-align: center;
             margin-bottom: 5px;
