@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="wbooidth=device-width, initial-scale=1.0">
+    <title>Xiaomi 11i 5G</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>      
+     function myfunction(){
+            flag = confirm(" Thankyou!! for order");
+            if (flag == true) {
+                alert("Your order is delievered soon..");
+            }
+            else {
+                alert("You order is canceled..");
+            }
+
+        } 
+    </script>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns:5fr 3fr 5fr;    
+
+            
+        }
+        .image{
+            background-image: url("./public/images/macarons-2548818_1280.jpg");
+            width: 600px;
+            height: 600px;
+            border-radius: 15px;
+            margin: 68px 75px;
+            background-position:center;
+            background-size: cover;
+            position: relative;
+            box-shadow: 10px 15px rgb(107, 107, 107);
+
+        }
+        .left-panel{
+            margin: 68px 5px;
+         
+
+        }
+        .right-panel{
+            margin-left: 35px;
+
+        }
+        .header{
+           font-size: 30px;
+            padding-top: 20px;
+            padding-left: -15px;
+            font-family:'Times New Roman', Times, serif;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .rating{
+            border: 1px solid rgb(16, 148, 16);
+            margin-left:27px;
+            background-color: rgb(17, 107, 14);
+            color: white;
+            border-radius: 2px;
+        }
+        .rating-reviews{
+            font-family: Arial, Helvetica, sans-serif;
+            color:rgba(0, 0, 0, 0.568);
+
+        }
+        .currency{
+            font-size: 30px;
+            font-family:serif;
+        }
+        
+        ul li{
+            padding-bottom: 10px;
+            font-family: sans-serif;
+        }
+        strike{
+            color:rgba(0, 0, 0, 0.568);
+        }
+        .off{
+            color: green;
+        }
+        .Exchange{
+            font-size: 20px;
+            font-family:  Arial, sans-serif;
+        }
+        .btn{
+            display: inline-block;
+            position: absolute;
+            padding: 15px 40px;
+            background-color: antiquewhite;
+            color: #151515;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 100px;
+          margin-top:10px ;
+            transition: all 0.2s;
+        }
+        .btn:hover{
+            transform: translateY(-3px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.568);
+
+        }
+        .btn::after {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            border-radius: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: all 0.4s;
+            background-color: white;
+        }
+        .btn:hover::after {
+            transform:scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+        .card2{
+            float: right;
+            width: 350px;
+            height: 150px;
+            margin-top: 100px; ;
+            box-shadow: 10px 15px 5px rgb(220, 219, 218) ;
+            background: rgb(242, 240, 220);
+            border-radius: 15px;
+        }
+        h2{
+            margin-top: 45px;
+        }
+        h3{
+            float: right;
+            margin: 10px;
+            
+        }
+        button{
+            border: 1px solid rgb(237, 235, 235);
+            background-color:rgb(255, 165, 0) ;
+            width: 300px;
+            height: 50px;
+            margin-left: 20px;
+        }
+        .btn-1 {
+            margin:10px;
+            border-radius: 10px;
+        }
+     
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+        <button style="margin-top: 620px ;">Buy now</button>
+        </div>
+        <div class="left-panel">   
+         <div class="header"><i class="bi bi-heart"></i>&nbsp;Cugna Nibs</div>
+         <span class ="rating">4.3<i class="bi bi-star-fill"></i></span> &nbsp;<span class="rating-reviews"> 9,405 Rating & 1,234 Reviews</span>
+            <ul>
+                <li>Use by: 04 JUN 2024</li>
+               <li>Sweet n' Creamy Tub</li> 
+               <li>  Brand 	Creambell</li>
+               <li> Item Weight 400 Grams</li>
+               <li>Diet Type pink Vegetarian</li>
+               <li>  Package Weight 0.4 Kilograms</li>
+               <li> Red Berry with Caramel</li>       
+            </ul>
+            <div class="right-panel">
+                <div class="currency">Price :&#8377;699</div>
+                <span style="margin: -15px 0px;"> <strike>&#8377;899</strike>&nbsp;&nbsp;<span class="off">16% off</span><br>
+                &#128666; Free delivery<br></span>
+                quantity: <select name="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="3">4</option>
+                    <option value="3">5</option>
+                    <option value="3">6</option>
+                    <option value="3">7</option>
+                </select>
+                <br>
+                <button onclick="myfunction()" class="btn-1">&#128722;Add to cart</button>
+               
+            
+               <p> Inclusive of all taxes
+                Bank Offer (3): 10% Instant Discount up to INR 300 on Federal Bank Debit Card Non EMITrxns. Minimum purchase value INR 1500 See All Bank Offer (3): 10% Instant Discount up to INR 300 on Federal Bank Debit Card Non EMITrxns. Minimum purchase value INR 1500</p>
+              <a href="#" class="btn">Get more</a>
+            </div>
+            </div>
+            <div class="card2">
+                <h3 >&#10006;</h3>
+                <h2>&nbsp;Sign in for your best Experience</h2>
+                <button type="button">Sign in securely</div>
+            </div>
+        </div>
+            
+    </div>
+    
+</body>
+</html>

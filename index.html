@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function myfuction() {
+            flag = confirm(" Thankyou!! for order");
+            if (flag == true) {
+                alert("Your order is delievered soon..");
+            }
+            else {
+                alert("You order is canceled..");
+            }
+
+        } 
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-image: url("./public/images/StockSnap_RTHQWD08HL.jpg");
+            background-position: center;
+            background-size: cover;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .box {
+            width: 100%;
+            height: 100vh;
+            background: rgba(51, 50, 50, 0.5);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            margin: auto;
+            justify-content: space-between;
+            background-color: rgb(15, 14, 14);
+            cursor: pointer;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        .list li a {
+            font-family: Teko;
+
+        }
+
+        img {
+            width: 80px;
+            height: 65px;
+            margin: 10px;
+            border-radius: 45px;
+            padding-bottom: 5px;
+        }
+
+        .checkBtn {
+            display: none;
+            font-family: Elephant;
+        }
+
+        #check {
+            display: none;
+        }
+
+        .checkBtn {
+            cursor: pointer;
+            font-size: 30px;
+            float: right;
+            color: #ed8c1e;
+            line-height: 80px;
+        }
+
+        .right ul {
+            display: flex;
+            list-style: none;
+            margin-top: 20px;
+
+        }
+
+        .right ul li a {
+            padding: 10px 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 1s;
+        }
+
+        .right ul li a:hover {
+            background-color: #656565;
+            border-radius: 7px;
+            color: rgb(171, 171, 170);
+        }
+
+
+        @media screen and (max-width:850px) {
+
+            .list {
+                width: 100%;
+                height: 100vh;
+                background-color: rgb(22, 7, 36);
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 8%;
+                left: 100%;
+                transition: all 1s;
+                padding: 60px;
+                font-family: jokerman;
+
+            }
+
+            .navbar {
+                position: fixed;
+            }
+
+            .right ul li {
+                margin: 10px;
+            }
+
+            #check {
+                display: none;
+            }
+
+            .checkBtn {
+                display: block;
+                z-index: 2;
+                color: orange;
+            }
+
+            #check:checked~ul {
+                left: 0%;
+            }
+
+            .content {
+                width: 70%;
+                z-index: 1;
+            }
+
+            #about {
+                width: 100%;
+            }
+
+        }
+
+        .content {
+            position: absolute;
+            top: 35%;
+            left: 2%;
+        }
+
+        .content h1 {
+            font-size: 55px;
+            color: rgb(249, 245, 243);
+            font-family: Castellar;
+        }
+
+        .content p {
+            color: white;
+            font-size: 25px;
+            font-weight: 700;
+            font-family: Concert One;
+            text-align: justify;
+        }
+
+        button {
+            width: 150px;
+            height: 45px;
+            border: 1px solid;
+            padding: 5px;
+            margin: 10px 15px;
+            background-color: rgb(40, 44, 52);
+            color: white;
+            font-weight: 30px;
+            border-radius: 5px;
+            transition: 4s;
+        }
+
+        button:hover {
+            background-color: red;
+            transition: 2s;
+        }
+
+        .bi {
+            padding: 5px;
+        }
+
+        .dreams {
+            margin: 20px;
+            background-color: rgb(39, 35, 7);
+            text-align: center;
+            color: rgba(215, 214, 214, 0.906);
+
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: 3fr 3fr 3fr;
+            background-color: rgb(251, 248, 247);
+        }
+
+        .booking {
+            width: 440px;
+            height: 450px;
+            margin-right: 45px;
+        }
+
+        .images {
+            width: 430px;
+            height: 250px;
+            margin-left: 45px;
+            transform: rotate3d(0deg);
+            transition: 5s;
+            box-shadow: 5px 10px 20px gray;
+        }
+
+        .images:hover {
+            transform: rotate3d(0, 1, 0, 360deg);
+            transition: 2s;
+            box-shadow: 5px 10px 20px gray;
+        }
+
+        #heading {
+            text-align: center;
+            margin-bottom: 5px;
+            text-transform: capitalize;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        p {
+            font-family: 'Regular 400 Italic';
+            margin-left: 10px;
+            text-align: center;
+        }
+
+        .shipping {
+            text-align: center;
+
+        }
+
+        .rating {
+            margin-top: 5px;
+            color: rgb(225, 189, 8);
+        }
+
+        #section {
+            margin-top: 44px;
+            justify-content: center;
+            align-items: center;
+            background-color: #060604e4;
+            color: white;
+            width: 100%;
+            height: 350px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        #section p2 {
+            float: left;
+            margin-top: 85px;
+            margin-left: 85px;
+            font-size: 40px;
+            font-family: Algerian;
+        }
+
+        p3 {
+            animation: myanimation infinite 10s;
+        }
+
+        @keyframes myanimation {
+            0% {
+                color: red;
+            }
+
+            25% {
+                color: blue;
+            }
+
+            50% {
+                color: beige;
+            }
+
+            75% {
+                color: rgb(0, 238, 255);
+            }
+
+            100% {
+                color: rgb(195, 0, 255);
+            }
+        }
+
+        #slider {
+            width: 400px;
+            height: 300px;
+            float: right;
+            margin: 25px;
+            background: url(./public/images/cofee5-removebg-preview.png);
+            animation: slide 20s infinite;
+            background-repeat: no-repeat;
+            box-shadow: 5px 10px 15px gray;
+            background-position: center center;
+            background-color: black;
+        }
+
+        .slider,
+        .quotw {
+            font-family: gigi;
+            font-size: larger;
+            float: right;
+            margin-top: 230px;
+        }
+
+        @keyframes slide {
+
+            50% {
+                background: url(./public/images/cofee_2-removebg-preview\(1\).png);
+                background-repeat: no-repeat;
+            }
+
+            50% {
+                background: url(./public/images/cofee5-removebg-preview.png);
+                background-repeat: no-repeat;
+
+            }
+
+            100% {
+                background: url(./public/images/cofee3-removebg-preview.png);
+                background-repeat: no-repeat;
+            }
+        }
+
+        .wrapper {
+            background-color: #f9f9f9;
+            padding-top: 25px;
+            padding-bottom: 45px;
+            margin-bottom: 5px;
+        }
+
+        .wrapper h2 {
+            font-size: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            padding-bottom: 25px;
+            color: rgb(49, 57, 26);
+        }
+
+
+        .cards {
+            width: 320px;
+            height: 315px;
+            display: inline-block;
+            border-radius: 10px;
+            margin: 10px 25px;
+            padding: 0px 35px;
+            box-sizing: border-box;
+            cursor: pointer;
+            background-position: center;
+            background-size: cover;
+            transition: transform 0.1ms;
+            filter: grayscale(100%);
+        }
+
+        .card1 {
+            background-image: url("./public/images/pastry.jpg");
+            color: rgb(214, 181, 14);
+            text-shadow: bisque;
+        }
+
+        .card1 p,
+        .card2 p,
+        .card3 p,
+        .card4 p {
+            color: rgb(250, 250, 249);
+            margin-top: 10px;
+            font-weight: bolder;
+            height: 200px;
+
+        }
+
+        .card2 {
+            background-image: url("./public/images/porridge-7188630_1280.jpg");
+            color: rgb(214, 181, 14);
+            text-shadow: bisque;
+        }
+
+        .card3 {
+            background-image: url("./public/images/cake.jpg");
+            color: rgb(214, 181, 14);
+            text-shadow: bisque;
+        }
+
+        .card4 {
+            background-image: url("./public/images/macarons-2548818_1280.jpg");
+            color: rgb(214, 181, 14);
+            text-shadow: bisque;
+        }
+
+        .cards:hover {
+            transform: translateY(-10px);
+            box-shadow: 10px 15px gray;
+            filter: grayscale(0%);
+        }
+
+        .caption {
+            background: url('./public/images/pexels-percival-ian-muico-2835547.jpg');
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+            height: 55vh;
+            opacity: 2.5;
+            backdrop-filter: 0.02;
+
+        }
+
+        .footer-top {
+            font-size: 35px;
+            font-weight: bolder;
+            font-family: Matura MT Script Capitals;
+            text-align: center;
+            background-color: rgb(28, 18, 18);
+            color: white;
+
+        }
+
+        .footer-section {
+            width: 100%;
+            display: flex;
+            color: white;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 1rem 0;
+            background-color: rgb(32, 30, 30);
+        }
+
+        .footer-section h2 {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .footer-section h2::after {
+            content: '';
+            width: 4rem;
+            height: .2rem;
+            background: #e65b00;
+            position: absolute;
+            top: 2.5rem;
+            left: 0;
+        }
+
+        .footer-section p {
+            transition: all .2s linear;
+            margin-bottom: .6em;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .footer-section p:hover {
+            transition: all .2s linear;
+            transform: translateX(4px);
+        }
+
+        .footer-section a:hover {
+            color: #f46d13;
+        }
+
+        .footer-item {
+            margin: 1rem;
+        }
+
+        .footer-item ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+        }
+
+        .footer-item li {
+            margin-right: 1rem;
+        }
+
+        .social ul li {
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all .2s linear;
+        }
+
+        .social ul li:hover {
+            color: #e65b00;
+            transform: scale(1.1);
+            transition: all .2s linear;
+        }
+
+        @media screen and (max-width: 320px) {
+            .footer-section {
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-left: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <nav class="navbar">
+                <div class="left">
+                    <img src="./public/images/coffi.png" alt="">
+                </div>
+                <div class="right">
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkBtn">
+                        <i class="bi bi-list"></i>
+                    </label>
+                    <ul class="list">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#heading"><i class="bi bi-cart"></i>E-carts</a></li>
+                        <li><a href="#book">Services</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#about">Contact Us</a></li>
+                    </ul>
+                </div>
+        </div>
+        </nav>
+        <div id="#home" class="content">
+            <h1>Bestsellers</h1>
+            <p>Looking for our most beloved coffees and merchandise?<br> Look no further! Our current bestsellers
+                are<br>
+                now in one place and at a special<br> price, just for you!
+            </p>
+            <button type="button"><i class="bi bi-cart-fill"></i>Shop now</button>
+        </div>
+    </div>
+    <div class="dreams">
+        <h1>Our HEAVEN</h1>
+    </div>
+    <div id="book" class="card-container">
+        <div class="booking">
+            <img src="./public/images/Baileys-Iced-Coffee-6.jpeg" alt="cold cofee" width="250" height="150"
+                class="images">
+            <div id="heading">
+                <h1>baileys iced cofee</h1>
+            </div>
+            <p>Try all our Ground Coffee flavours in smaller, non committal packs to discover your favourite</p>
+            <div class="shipping">
+                <button type="button1" onclick="myfuction()"><span class="bi bi-cart"></span>Add to
+                    cart&nbsp;&nbsp;&#8377;250</button>
+                <div class="rating">
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-half"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <img src="./public/images/cup_coffee_.jpg" alt="cold cofee" width="250" height="150" class="images">
+            <div id="heading">
+                <h1>shestopal cofee</h1>
+            </div>
+            <p>Our heat-insulated travel mug keeps coffee safe and warm (or cold) for hours</p>
+            <div class="shipping">
+                <button type="button1" onclick="myfuction()"><span class="bi bi-cart"></span>Add to
+                    cart&nbsp;&nbsp;&#8377;300</button>
+                <div class="rating">
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-half"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <img src="./public/images/mocha cold cofee.jpg" alt="cold cofee" width="250" height="150" class="images">
+            <div id="heading">
+                <h1>mocha cold cofee</h1>
+            </div>
+            <p>Designed to go wherever you do. The Tumbler is double-walled and it'll keep your Cold Brew cold</p>
+            <div class="shipping">
+                <button type="button1" onclick="myfuction()"><span class="bi bi-cart"></span>Add to cart
+                    &nbsp;&nbsp;&#8377;800</button>
+                <div class="rating">
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <img src="./public/./images/ranbow.jpg" alt="cold cofee" width="250" height="150" class="images">
+            <div id="heading">
+                <h1>Rainbow cake</h1>
+            </div>
+            <p>A birthday cake fit for a true rainbow lover! Rainbow buttercream frosting roses adorn this colorful ..
+            </p>
+            <div class="shipping">
+                <button type="button1" onclick="myfuction()"><span class="bi bi-cart"></span>Add to cart
+                    &nbsp;&nbsp;&#8377;800</button>
+                <div class="rating">
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <img src="./public/images/20191120-blackberry-virgin-mojito-delish-ehg-4719-1583519572.jpg" alt="cold cofee"
+                width="250" height="150" class="images">
+            <div id="heading">
+                <h1>BlacKberrymojito</h1>
+            </div>
+            <p>Freshness overload blackberry -virgin mojito delish for drink. The Tumbler is double-walled and it'll
+                keep your Cold Brew cold</p>
+            <div class="shipping">
+                <button type="button1" onclick="myfuction()"><span class="bi bi-cart"></span>Add to cart
+                    &nbsp;&nbsp;&#8377;800</button>
+                <div class="rating">
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <img src="./public/images/3 indegredient.jpg" alt="cold cofee" width="250" height="150" class="images">
+            <div id="heading">
+                <h1>three ingrediet</h1>
+            </div>
+            <p>Designed to go wherever you do. The Tumbler is double-walled and it'll keep your Cold Brew cold</p>
+            <div class="shipping">
+                <button type="button1" onclick="myfuction()"><span class="bi bi-cart"></span>Add to cart
+                    &nbsp;&nbsp;&#8377;800</button>
+                <div class="rating">
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <img src="./public/images/tnm_import_sites_default_files_images_icecream_sushinair_inside2_3152023_650.avif"
+                alt="cold cofee" width="250" height="150" class="images">
+            <div id="heading">
+                <h1>Kappa Chakka Kandhari</h1>
+            </div>
+            <p>Designed to go wherever you do. The Tumbler is double-walled and it'll keep your Cold Brew cold</p>
+            <div class="shipping">
+                <button type="button1" onclick="myfuction()"><span class="bi bi-cart"></span>Add to cart
+                    &nbsp;&nbsp;&#8377;800</button>
+                <div class="rating">
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <img src="./public/images/tnm_import_sites_default_files_images_icecream_sushinair_inside4_3152023_650.avif"
+                alt="cold cofee" width="250" height="150" style="background-position: center;" class="images">
+            <div id="heading">
+                <h1>Honeycomb cake</h1>
+            </div>
+            <p>Designed to go wherever you do. The Tumbler is double-walled and it'll keep your Cold Brew cold</p>
+            <div class="shipping">
+                <button type="button1" onclick="myfuction()"><span class="bi bi-cart"></span>Add to cart
+                    &nbsp;&nbsp;&#8377;800</button>
+                <div class="rating">
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <img src="./public/images/tnm_import_sites_default_files_icecream_sushinair_cover_3152023-1200.avif"
+                alt="cold cofee" width="250" height="150" class="images">
+            <div id="heading">
+                <h1>bengarluru grasgy</h1>
+            </div>
+            <p>Designed to go wherever you do. The Tumbler is double-walled and it'll keep your Cold Brew cold</p>
+            <div class="shipping">
+                <button type="button1" onclick="myfuction()"><span class="bi bi-cart"></span>Add to cart
+                    &nbsp;&nbsp;&#8377;800</button>
+                <div class="rating">
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star-fill"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                    <span><i class="bi bi-star"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="section">
+        <p2>
+            <q>Good ideas start width <p3>brainstroming</p3>.<br>Great ideas start with cofee</q>
+        </p2>
+        <div id="slider">
+            <p class="quotw">Life begins after coffee.&#128513;&#128514; <br>
+                Just brewed happiness in a cup</p>
+        </div>
+    </div>
+    </div>
+    <div id="bestseller" class="wrapper">
+        <h2 style="font-family: Mistral;color: rgb(45, 16, 16);">Delicious Inner Pages</h2>
+        <div class="cake">
+            <div class="cards card1">
+                <h1>pastry</h1>
+                <p>WELCOME TO JAIPUR</p>
+                <a href="./link.html"><button type="button" class="btn btn-primary">&#128666;order now</button></a>
+
+            </div>
+            <div class="cards card2">
+                <h1>Smoothie</h1>
+                <p>WELCOME TO SRINAGAR</p>
+                <a href="./link2.html"><button type="button" class="btn btn-primary">&#128666;order now</button></a>
+
+
+            </div>
+            <div class="cards card3">
+                <h1>cake</h1>
+                <p>WELCOME TO KERLA</p>
+                <a href="./link3.html"><button type="button" class="btn btn-primary">&#128666;order now</button></a>
+            </div>
+            <div class=" cards card4">
+                <h1>cookies</h1>
+                <p>WELCOME TO Mumbai</p>
+                <a href="./link4.html"><button type="button" class="btn btn-primary">&#128666;order now</button></a>
+
+            </div>
+        </div>
+    </div>
+    <div class="caption">
+
+    </div>
+    <div id="about">
+        <div class="footer-top">&#9743;Contact us</div>
+        <div class="footer-section">
+            <div class="footer-item">
+                <h2>Coffea</h2>
+                <p style="margin-top: 25px;text-align: justify;">
+                    Hello everyone,👋<br> I'm excited to share my new design about <br> Restaurants Website Design <br>
+                    Hope
+                    you guys like it! Cheers for checking out. <br> Let's talk about your projects <br>Whatsapp:
+                    +8801752274780 <br> Mail: coffea5566@gmail.com <br>
+                </p>
+            </div>
+            <div class="footer-item">
+                <h2>Company</h2>
+                <p><a href=""> About Us</a></p>
+                <p><a href=""> Contact Us</a></p>
+                <p><a href=""> Our Services</a></p>
+                <p><a href=""> Privacy Policy</a></p>
+            </div>
+            <div class="footer-item">
+                <h2>Get Help </h2>
+                <p><a href=""> FAQ</a></p>
+                <p><a href=""> Shipping </a></p>
+                <p><a href=""> Retuns </a></p>
+                <p><a href=""> Payment Options </a></p>
+            </div>
+            <div class="footer-item">
+                <h2>Online Shop</h2>
+                <p><a href="">Cups Coffee Makers </a></p>
+                <p><a href="">Coffee Mugs</a></p>
+                <p><a href="">Wakecup Coffee </a></p>
+                <p><a href=""> Powders Gifts </a></p>
+            </div>
+            <div class="footer-item social">
+                <h2> Follow Us </h2>
+                <ul>
+                    <li> <i class="bi bi-instagram"></i></li>
+                    <li> <i class="bi bi-linkedin"></i></li>
+                    <li> <i class="bi bi-youtube"></i></li>
+                    <li> <i class="bi bi-twitter"></i> </li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center;background-color: rgb(35, 33, 33);color: wheat;">
+            &copy;2023 by Ayush_kumar
+        </div>
+</body>
+
+</html>
