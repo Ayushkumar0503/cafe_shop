@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        /* Add styles for cart page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+        .cart-container {
+                        
+            background-color:rgb(231, 130, 83) ;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .cart-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .cart-total {
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .cart-empty {
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .btn-checkout {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: orange;
+            color: white;
+            border: none;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            const cartItemsElement = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+
+            // Retrieve cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            if (cart.length === 0) {
+                cartItemsElement.innerHTML = '<p class="cart-empty">Your cart is empty.</p>';
+                document.getElementById('checkout-button').style.display = 'none';
+            } else {
+                let total = 0;
+                cart.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${item.name} x ${item.quantity} - ₹${(item.price * item.quantity).toFixed(2)}`;
+                    cartItemsElement.appendChild(listItem);
+                    total += item.price * item.quantity;
+                });
+                cartTotalElement.textContent = `Total: ₹${total.toFixed(2)}`;
+            }
+
+            // Checkout button event listener
+            document.getElementById('checkout-button').addEventListener('click', function() {
+                alert('Proceeding to checkout...');
+                // Clear the cart for now
+                localStorage.removeItem('cart');
+                window.location.href = 'index.html'; // Redirect to home page after checkout
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="cart-container">
+        <div class="cart-header">Your Cart</div>
+        <ul id="cart-items"></ul>
+        <div class="cart-total" id="cart-total"></div>
+        <button id="checkout-button" class="btn-checkout">Proceed to Checkout</button>
+    </div>
+</body>
+</html>

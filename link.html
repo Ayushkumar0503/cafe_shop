@@ -5,19 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="wbooidth=device-width, initial-scale=1.0">
     <title>Xiaomi 11i 5G</title>
-
-    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>      
-     function myfunction(){
-            flag = confirm(" Thankyou!! for order");
-            if (flag == true) {
-                alert("Your order is delievered soon..");
-            }
-            else {
-                alert("You order is canceled..");
+       // Shopping Cart Functionality
+       window.onload = function() {
+        // Add to cart functionality
+        function addToCart(button) {
+            const product = button.closest('.product');
+            const productId = product.getAttribute('data-id');
+            const productName = product.getAttribute('data-name');
+            const productPrice = parseFloat(product.getAttribute('data-price'));
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Check if the product already exists in the cart
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1; // Increase quantity if already in cart
+            } else {
+                cart.push({ id: productId, name: productName, price: productPrice, quantity: 1 });
             }
 
-        } 
+            // Save the updated cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Redirect to cart page
+            window.location.href = 'cart.html';
+        }
+
+        // Attach the function to the Add to Cart button
+        document.querySelector('.btn-1').addEventListener('click', function() {
+            addToCart(this);
+        });
+    }
     </script>
     <style>
         .container{
@@ -121,6 +143,7 @@
             transform:scaleX(1.4) scaleY(1.6);
             opacity: 0;
         }
+        
         .card2{
             float: right;
             width: 350px;
@@ -148,7 +171,124 @@
         .btn-1 {
             margin:10px;
             border-radius: 10px;
-        }
+        }/* Default styles for text */
+/* Default styles for text */
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+  .rating2{
+    margin-top: 15px;
+    color: rgb(225, 189, 8);
+  }
+  #cart {
+    border: 1px solid #333;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#cart h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cart-items li {
+    margin-bottom: 5px;
+}
+
+#cart-total {
+    font-weight: bold;
+    color: #008000;
+}
+  /* Apply different styles when the screen width is less than 768px (tablet) */
+  @media (max-width: 768px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .image {
+      width: 90%; /* Adjust the image width for tablets */
+      height: auto;
+      margin: 20px 0;
+      background-size: auto;
+      background-repeat: no-repeat;
+      border-radius: 15px;
+      margin: 68px 75px;
+      box-shadow: 0 0;
+
+     
+
+    }
+  
+    .left-panel,
+    .right-panel {
+      margin: 20px 0;
+      text-align: center;
+    }
+  
+    .rating {
+      margin: 0;
+    }
+  
+    ul li {
+      padding: 5px;
+    }
+  }
+  
+  /* Apply different styles when the screen width is less than 480px (mobile) */
+  @media (max-width: 480px) {
+    .header {
+      font-size: 24px;
+    }
+  
+    .rating {
+      font-size: 14px;
+    }
+  
+    .rating-reviews {
+      font-size: 12px;
+    }
+  
+    .currency {
+      font-size: 20px;
+    }
+  
+    .off {
+      font-size: 16px;
+    }
+  
+    .Exchange {
+      font-size: 16px;
+    }
+  
+    .image {
+      width: 100%; /* Adjust the image width for mobile */
+      height: auto;
+    }
+  
+    button {
+      width: 100%;
+    }
+    .rating2{
+        margin-top: 5px;
+        color: rgb(225, 189, 8);
+  }
+  
+
+    
+}
      
        
     </style>
@@ -156,9 +296,10 @@
 <body>
     <div class="container">
         <div class="image">
-        <button style="margin-top: 620px ;">Buy now</button>
+        <button style="margin-top: 620px ;" onclick="addToCart(this)">Buy now</button>
         </div>
         <div class="left-panel">   
+          <div class="product" data-id="1" data-name="Chocolate pastry Tub" data-price="799.00">
          <div class="header"><i class="bi bi-heart"></i>&nbsp;Chocolate pastry Tub,</div>
          <span class ="rating">4.3<i class="bi bi-star-fill"></i></span> &nbsp;<span class="rating-reviews"> 9,405 Rating & 1,234 Reviews</span>
             <ul>
@@ -186,19 +327,24 @@
                 <br>
                 <button  onclick="myfunction()"  class="btn-1">&#128722;Add to cart</button>
                
-            
+              
                <p> Inclusive of all taxes
                 Bank Offer (3): 10% Instant Discount up to INR 300 on Federal Bank Debit Card Non EMITrxns. Minimum purchase value INR 1500 See All Bank Offer (3): 10% Instant Discount up to INR 300 on Federal Bank Debit Card Non EMITrxns. Minimum purchase value INR 1500</p>
               <a href="#" class="btn">Get more</a>
             </div>
             </div>
+            </div>
             <div class="card2">
+
                 <h3 >&#10006;</h3>
                 <h2>&nbsp;Sign in for your best Experience</h2>
-                <button type="button">Sign in securely</div>
+                <a href="./form.html"> <button type="button">Sign in securely</a>
+                  </button>
+                </div>
+           
             </div>
         </div>
-            
+      </div>  
     </div>
     
 </body>
